@@ -2,6 +2,8 @@
 \usepackage[margin=1.0in]{geometry} % Please keep the margins at 1.5 so that there is space for grader comments.
 \usepackage{amsmath,amsthm,amssymb,tikz}
 
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
 \begin{document}
 \begin{center}\Large Math 492 Quantam Physics Problem\end{center}
 \begin{center}\large Ryan Toepfer and Carter Ronald\end{center}
@@ -72,7 +74,7 @@ f&=c_1e^0\cos(2at)+c_2e^0\sin(2at)\\
 f&=c_1\cos(2at)+c_2\sin(2at)\\
 \therefore \dot f&=-c_12a\sin(2at)+c_22a\cos(2at)
 \end{align*}
-pluggint $f$ into our equation for $\dot f$ gives $g$: 
+plugging $f$ into our equation for $\dot f$ gives $g$: 
 \begin{align*}
 \dot f&=2ag\\
 -c_12a\sin(2at)+c_22a\cos(2at)&=2ag\\
@@ -87,5 +89,28 @@ As a vector gives:
 \includegraphics[width=\textwidth]{Figure1}
 Changing $c_1$ and $c_2$ affects the size of the circle.
 Changing $a$ only affects the paramaterization.
+
+Now let's begin an analysis of the radius of the circle.
+Notice that $z\bar z=(f+g)(f-gi)=f^2+g^2$, which is the radius of our circle. 
+Since this is a constant with respect to time, we should expect $\frac{d}{dt}\left(z\bar z\right)=0$.
+Let's check this assumption:
+\begin{align*}
+\frac{d}{dt}\left(z\bar z\right)&=\dot z\bar z+z\dot {\bar z}\\
+&=(-2aiz)\bar z+z\overbar{(-2aiz)}\\
+&=(-2aiz)\bar z+z\overbar{(-2ai)}\bar z\\
+&=(-2aiz)\bar z+z(2ai)\bar z\\
+&=0
+\end{align*}
+
+\section{Assuming $\beta$ is real, a=d=0}
+This gives us the equation
+\begin{align*}
+\dot z&=-\bar\beta+diz-aiz-\beta z^2\\
+&=-\bar\beta-\beta z^2\\
+&=-\beta(1+z^2)
+\end{align*}
+Which is separable and has the solution $z=\tan(-\beta t+C)$
+
+
 
 \end{document}
