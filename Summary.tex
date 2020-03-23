@@ -101,6 +101,25 @@ Let's check this assumption:
 &=(-2aiz)\bar z+z(2ai)\bar z\\
 &=0
 \end{align*}
+So if the radius of the circle never changes it is just equal to the initial value $z(0)\bar z(0)$.
+
+\section{Assuming $\beta$ is real}
+
+Let $\beta=b\in\mathbb R$.
+Recall our ODE.
+$$\dot{\begin{pmatrix}x\\y\end{pmatrix}}=A{\begin{pmatrix}x\\y\end{pmatrix}}, A=\begin{pmatrix}0&\beta\\-\beta&0\end{pmatrix}$$
+The eivenvalues of $A$ are $\lambda_1=i\beta$, $\lambda_2=-i\beta$.
+The eigenvectors corresponding to each $\lambda$ are $\begin{pmatrix}1\\i\end{pmatrix}$ and $\begin{pmatrix}i\\1\end{pmatrix}$ respectively. So there exists $R$ and $R^{-1}$ so $A=R^{-1}\begin{pmatrix}\lambda_1&0\\0&\lambda_2\end{pmatrix}R$.
+
+$$R\dot{\begin{pmatrix}x\\y\end{pmatrix}}=RAR^{-1}R{\begin{pmatrix}x\\y\end{pmatrix}}$$
+
+1:
+$$\frac{c-i}{1-ci}=\frac{(c-i)(1+ci)}{1+c^2}=\frac{-i+c^2i+2c}{1+c^2}$$
+2:
+$$\frac{-c-i}{1+ci}=\frac{-(c+i)(1-ci)}{{1+c^2}}=\frac{-i+c^2i-2c}{{1+c^2}}$$
+
+So in General
+$$\frac{-i+c^2i\pm2c}{{1+c^2}}$$
 
 \section{Assuming $\beta$ is real, a=d=0}
 This gives us the equation
