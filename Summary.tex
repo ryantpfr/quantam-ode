@@ -1,6 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage[margin=1.0in]{geometry} % Please keep the margins at 1.5 so that there is space for grader comments.
 \usepackage{amsmath,amsthm,amssymb,tikz}
+\def\mathLarge#1{\mbox{\LARGE $#1$}}
 
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 
@@ -108,18 +109,75 @@ So if the radius of the circle never changes it is just equal to the initial val
 Let $\beta=b\in\mathbb R$.
 Recall our ODE.
 $$\dot{\begin{pmatrix}x\\y\end{pmatrix}}=A{\begin{pmatrix}x\\y\end{pmatrix}}, A=\begin{pmatrix}0&\beta\\-\beta&0\end{pmatrix}$$
-The eivenvalues of $A$ are $\lambda_1=i\beta$, $\lambda_2=-i\beta$.
-The eigenvectors corresponding to each $\lambda$ are $\begin{pmatrix}1\\i\end{pmatrix}$ and $\begin{pmatrix}i\\1\end{pmatrix}$ respectively. So there exists $R$ and $R^{-1}$ so $A=R^{-1}\begin{pmatrix}\lambda_1&0\\0&\lambda_2\end{pmatrix}R$.
+Here we are going to take a different approach than what we did in section 4. As we saw when $\beta=0$ the matrix:
+\begin{align*}
+A = \begin{pmatrix}ai&0\\0&-ai\end{pmatrix}
+\end{align*}
+results in a situation where $z = constant$ since $\dot z = 0$. For our current assumptions we have:
+\begin{align*}
+A = \begin{pmatrix}0&b\\-b&0\end{pmatrix}
+\end{align*}
+and it follows that we could diagonalize this matrix to get the same situation as the previous case where $b = 0$. To diagonalize the matrix above we need to find a matrix $T$ such that:
+\begin{align*}
+T\begin{pmatrix}0&b\\-b&0\end{pmatrix}T^{-1}
+\end{align*}
+is diagonal. Furthermore we need to modify the original system of equations we started with.
+\begin{align*}
+\dot{\begin{pmatrix}x\\y\end{pmatrix}}&=\begin{pmatrix}0&b\\-b&0\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}\\
+T\dot{\begin{pmatrix}x\\y\end{pmatrix}}&=T\begin{pmatrix}0&b\\-b&0\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}\\
+T\dot{\begin{pmatrix}x\\y\end{pmatrix}}&=T\begin{pmatrix}0&b\\-b&0\end{pmatrix}T^{-1}T\begin{pmatrix}x\\y\end{pmatrix}
+\end{align*}
+Now we have the original system in terms of the diagonal matrix that we want. To simplify, let: 
+\begin{center}
+$\begin{pmatrix}u\\v\end{pmatrix}=T\begin{pmatrix}x\\y\end{pmatrix}$
+\end{center}
+Then
+\begin{center}
+$u = T_{1,1}x + T_{1,2}y$\\
+$v = T_{2,1}x + T_{2,2}y$
+\end{center}
+To find T we need to find the eigenvalues and their corresponding eigenvectors for the matrix:
+\begin{align*}
+A = \begin{pmatrix}0&b\\-b&0\end{pmatrix}
+\end{align*}
+Which are
+\begin{center}
+$\lambda_{1} = ib$, $v_{1} = \begin{pmatrix}1\\i\end{pmatrix}$\\
+$\lambda_{2} = -ib$, $v_{2} = \begin{pmatrix}i\\1\end{pmatrix}$\\
+\end{center}
+Thus
+\begin{align*}
+T &= \begin{pmatrix}1&i\\i&1\end{pmatrix}\\
+T^{-1} &= \begin{pmatrix}\frac{1}{2}&\frac{-i}{2}\\[6pt]\frac{-i}{2}&\frac{1}{2}\end{pmatrix}\\
+\end{align*}
+Plugging the values of T into the previous system involving $u$ and $v$ we get
+\begin{center}
+$u = 1x + iy$\\
+$v = ix + 1y$
+\end{center}
+Now we want to consider $|vu^{-1}|$ similarly to when we considered $z=yx^{-1}$ which gives us
+\begin{center}
+$vu^{-1} = \mathLarge{\frac{ix + y}{x + iy}}$
+\end{center}
+We can write this in terms of $z$ with some manipulation as follows
+\begin{center}
+$vu^{-1} = \mathLarge{\frac{ix + y}{x + iy}}\cdot\mathLarge{\frac{x^{-1}}{x^{-1}}}=
+\mathLarge{\frac{i + yx^{-1}}{1 + iyx^{-1}}} = \mathLarge{\frac{i + z}{1 + iz}}$
+\end{center}
+Therefore
+\begin{center}
+$|vu^{-1}| = \mathLarge{\frac{|i + z|}{|1 + iz|}} = c$
+\end{center}
+where $c \in \mathbb C$ is a constant. Solving this for $z$ results in the following
 
-$$R\dot{\begin{pmatrix}x\\y\end{pmatrix}}=RAR^{-1}R{\begin{pmatrix}x\\y\end{pmatrix}}$$
 
 1:
-$$\frac{c-i}{1-ci}=\frac{(c-i)(1+ci)}{1+c^2}=\frac{-i+c^2i+2c}{1+c^2}$$
+$$z = \frac{c-i}{1-ci}=\frac{(c-i)(1+ci)}{1+c^2}=\frac{-i+c^2i+2c}{1+c^2}$$
 2:
-$$\frac{-c-i}{1+ci}=\frac{-(c+i)(1-ci)}{{1+c^2}}=\frac{-i+c^2i-2c}{{1+c^2}}$$
+$$ z = \frac{-c-i}{1+ci}=\frac{-(c+i)(1-ci)}{{1+c^2}}=\frac{-i+c^2i-2c}{{1+c^2}}$$
 
 So in General
-$$\frac{-i+c^2i\pm2c}{{1+c^2}}$$
+$$ z = \frac{-i+c^2i\pm2c}{{1+c^2}}$$
 
 \section{Assuming $\beta$ is real, a=d=0}
 This gives us the equation
