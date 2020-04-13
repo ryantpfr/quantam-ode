@@ -168,16 +168,25 @@ Therefore
 \begin{center}
 $|vu^{-1}| = \mathLarge{\frac{|i + z|}{|1 + iz|}} = c$
 \end{center}
-where $c \in \mathbb R$ is a constant. Solving this for $z$ results in the following
+where $c \in \mathbb R$ is a constant. Letting $z=f + ig$ we get.
+\begin{center}
+$\mathLarge{\frac{|f + (1+g)i|}{|(1-g) + if|}} = c$
+\end{center}
+Now we can solve this for $f$ to get the shape of this equation.
+\begin{align*}
+\mathLarge{\frac{\sqrt{f^{2} + (1+g)^{2}}}{\sqrt{(1-g)^{2} + f^{2}}}} &= c\\
+\mathLarge{\frac{f^{2} + (1+g)^{2}}{(1-g)^{2} + f^{2}}} &= c^{2}\\
+f^{2} + (1+g)^{2} &= c^{2}((1-g)^{2} + f^{2})\\
+f^{2} + (1+g)^{2} &= c^{2}(1-g)^{2} + c^{2}f^{2}\\
+f^{2} + c^{2}f^{2} &= c^{2}(1-g)^{2} - (1+g)^{2}\\
+f^{2}(1-c^{2}) &= c^{2}(1-g)^{2} - (1+g)^{2}\\
+f &= \mathLarge{\sqrt{\frac{c^{2}(1-g)^{2} - (1+g)^{2}}{1-c^{2}}}}
+\end{align*}
+Using the same tool as in section 4 we can graph this equation as well to see its shape. Note that since $f$ represents the real part of $z$ while $g$ represents the imaginary part the axes are inverted.\\\\
+\includegraphics[width=\textwidth]{Figure3}\\
+Here, $c$ controls both the center of the circle and the radius, where $c\neq1$
 
 
-1:
-$$z = \frac{c-i}{1-ci}=\frac{(c-i)(1+ci)}{1+c^2}=\frac{-i+c^2i+2c}{1+c^2}$$
-2:
-$$ z = \frac{-c-i}{1+ci}=\frac{-(c+i)(1-ci)}{{1+c^2}}=\frac{-i+c^2i-2c}{{1+c^2}}$$
-
-So in General
-$$ z = \frac{-i+c^2i\pm2c}{{1+c^2}}$$
 
 \section{Assuming $\beta$ is real, a=d=0}
 This gives us the equation
