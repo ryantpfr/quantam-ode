@@ -6,7 +6,7 @@
 \newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
 
 \begin{document}
-\begin{center}\Large Math 492 Quantam Physics Problem\end{center}
+\begin{center}\Large Math 492 Quantum Physics Problem\end{center}
 \begin{center}\large Ryan Toepfer and Carter Ronald\end{center}
 
 \section{Problem Statement}
@@ -22,19 +22,19 @@ or alternatively,
 $\begin{pmatrix}ai&\beta\\-\bar\beta&di\end{pmatrix}$
 \end{center}
 
-Axiom 2.2) The state of a quantam system can be described entirely by $\begin{pmatrix}x\\y\end{pmatrix}$, where $x,y$ are complex numbers. 
+Axiom 2.2) The state of a quantum system can be described entirely by $\begin{pmatrix}x\\y\end{pmatrix}$, where $x,y$ are complex numbers. 
 
-Axiom 2.3) Two quantam states are considered the same if one is a multiple of another, i.e. $\begin{pmatrix}x\\y\end{pmatrix}=\alpha\begin{pmatrix}v\\w\end{pmatrix}$ for any $x,y,\alpha,v,w\in\mathbb C$, means both states are the same.
+Axiom 2.3) Two quantum states are considered the same if one is a multiple of another, i.e. $\begin{pmatrix}x\\y\end{pmatrix}=\alpha\begin{pmatrix}v\\w\end{pmatrix}$ for any $x,y,\alpha,v,w\in\mathbb C$, means both states are the same.
 Therefore any state $\begin{pmatrix}x\\y\end{pmatrix}$ can be represented as a ratio $z=x/y$.
 
-Axiom 2.4) The function describing the state of a quantam system at time $t$ is the solution to the ODE
+Axiom 2.4) The function describing the state of a quantum system at time $t$ is the solution to the ODE
 \begin{center}$
 \dot{\begin{pmatrix}x\\y\end{pmatrix}}=A\begin{pmatrix}x\\y\end{pmatrix}
 $\end{center}
-where $A$ is a skew hermation matrix.
+where $A$ is a skew hermitian matrix.
 
 \section{Initial Results}
-Combining Axiom 2.4 with the general form of a $2\times2$ skew hermation matrix gives
+Combining Axiom 2.4 with the general form of a $2\times2$ skew hermitian matrix gives
 \begin{center}
 $\dot{\begin{pmatrix}x\\y\end{pmatrix}}=\begin{pmatrix}ai&\beta\\-\bar\beta&di\end{pmatrix}\begin{pmatrix}x\\y\end{pmatrix}$
 or $\begin{cases}\dot x=aix+\beta y\\\dot y=-\bar\beta x+diy\end{cases}$
@@ -104,7 +104,7 @@ Let's check this assumption:
 \end{align*}
 So if the radius of the circle never changes it is just equal to the initial value $z(0)\bar z(0)$.
 
-\section{Assuming $\beta$ is real}
+\section{Assuming $\beta$ is real, a=d=0}
 
 Let $\beta=b\in\mathbb R$.
 Recall our ODE.
@@ -188,14 +188,49 @@ Here, $c$ controls both the center of the circle and the radius, where $c\neq1$
 
 
 
-\section{Assuming $\beta$ is real, a=d=0}
-This gives us the equation
+\section{Assuming $\beta$ is purely imaginary, a=d=0}
+Let $\beta = bi$ where $b\in\mathbb{R}$ then our matrix look like:
+\begin{center}
+$A = \begin{pmatrix}0&bi\\bi&0\end{pmatrix}$
+\end{center}
+We can take the same approach here as described in section 5. The eigenvalues and eigenvectors of $A$ are:
+\begin{center}
+$\lambda_1=bi, v_1=\begin{pmatrix}1\\1\end{pmatrix}$
+$\lambda_1=-bi, v_1=\begin{pmatrix}-1\\1\end{pmatrix}$
+\end{center}
+Thus the matrix $T$ we are looking for is:
+\begin{center}
+$T = \begin{pmatrix}1&-1\\1&1\end{pmatrix}$
+\end{center}
+Plugging the values of $T$ into the system with $u$ and $v$ gives us:
 \begin{align*}
-\dot z&=-\bar\beta+diz-aiz-\beta z^2\\
-&=-\bar\beta-\beta z^2\\
-&=-\beta(1+z^2)
+u = 1x+-1y &= x-y\\
+v = 1x+1y &= x+y
 \end{align*}
-Which is separable and has the solution $z=\tan(-\beta t+C)$
+Then:
+\begin{center}
+$|vu^{-1}|= \mathLarge{\frac{x + y}{x - y}}\cdot\mathLarge{\frac{x^{-1}}{x^{-1}}}=
+\mathLarge{\frac{1 + yx^{-1}}{1 - yx^{-1}}} = \mathLarge{\frac{1 + z}{1 - z}} = c$
+\end{center}
+For some $c\in\mathbb{R}$. Letting $z=f+gi$ for $f,g\in\mathbb{R}$, and solving for $g$ results in:
+\begin{center}
+$g = \mathLarge{\sqrt{\frac{c^{2}(1-f)^{2} - (1+f)^{2}}{1+c^{2}}}}$
+\end{center}
+The equation above results in a few possible shapes depending on the value of $c$.\\
+If $c>1$ or $c<-1$:\\\\
+\includegraphics[width=\textwidth]{Figure4}\\
+When $c>1$ or $c<-1$ we get a hyperbola whose center and focal points change as $c$ changes.\\\\
+If $-1\leq c\leq1$:\\\\
+\includegraphics[width=\textwidth]{Figure5}\\
+When $-1\leq c \leq 1$ we get an ellipse or circle whose center and focal points change as $c$ changes between this interval.
+
+
+
+
+
+
+
+
 
 
 
